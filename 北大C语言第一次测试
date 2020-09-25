@@ -1,0 +1,37 @@
+//马拉车解法求解最长对称子串长度！
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+int Malache(char *str1){
+      //求最大对称子串长度
+        int MAXlen = 1;//最大长度
+        int len=strlen(inp);
+        int jilu[len];//存包含该位及前个元素最长对称子串
+        jilu[0]=1;
+        int i=1;
+        for(;i<len;i++){
+                int max =1;
+                if((i-jilu[i-1]-1)>=0 && str1[i] == str1[i-record[i-1]-1]){
+                        max = max>(jilu[i-1] + 2)? max:(jilu[i-1] +2);
+                }
+                int k = 1;
+                while(str1[i] == str1[i-k]){
+                        k++;
+                }
+                max = max>k? max:k;
+                jilu[i] = max;
+                if(jilu[i]>maxlen) maxlen=jilu[i];
+        }
+        return maxlen;
+}
+
+int main(){
+  int a=0;
+  scanf("%d",&a);
+        char input[10000000];
+	scanf("%s",str);
+        int len1 = Malache(str);//从前向后递归
+        printf("%d",len1);
+        return 0;
+}
